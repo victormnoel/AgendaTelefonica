@@ -19,7 +19,7 @@ public class UsuarioController : ControllerBase
 {
     #region Propriedades
 
-    private IMediator _mediator;
+    private readonly IMediator _mediator;
     private readonly ILogRepositorio _logRepositorio;
     
     const string MENSAGEM_ERRO = "Ocorreu um erro inesperado! Por favor, tente novamente.";
