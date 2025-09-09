@@ -1,5 +1,6 @@
 using AgendaTelefonica.Aplicacao.Modelos.ViewModels;
 using AgendaTelefonica.Dominio.Entidades;
+using AgendaTelefonica.Dominio.Enums;
 using AgendaTelefonica.Dominio.Interfaces;
 using MediatR;
 
@@ -25,7 +26,7 @@ public class BuscarTodosUsuarioQueryHandler : IRequestHandler<BuscarTodosUsuario
     
     public async Task<List<UsuarioViewModel>?> Handle(BuscarTodosUsuarioQuery request, CancellationToken cancellationToken)
     {
-        List<Usuario>? usuarioRecuperados = await _usuarioRepositorio.BuscarTodos();
+        List<Usuario>? usuarioRecuperados = await _usuarioRepositorio.BuscarPorFiltro(usuario => usuario.Status == StatusPadrao.Ativo);
         if (usuarioRecuperados is null or { Count: 0 })
             return null;
         return usuarioRecuperados.Select(usuario => new UsuarioViewModel()

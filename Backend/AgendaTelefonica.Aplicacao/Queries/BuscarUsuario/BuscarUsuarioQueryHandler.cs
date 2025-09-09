@@ -1,5 +1,6 @@
 using AgendaTelefonica.Aplicacao.Modelos.ViewModels;
 using AgendaTelefonica.Dominio.Entidades;
+using AgendaTelefonica.Dominio.Enums;
 using AgendaTelefonica.Dominio.Interfaces;
 using MediatR;
 
@@ -25,7 +26,7 @@ public class BuscarUsuarioQueryHandler : IRequestHandler<BuscarUsuarioQuery, Usu
     public async Task<UsuarioViewModel?> Handle(BuscarUsuarioQuery request, CancellationToken cancellationToken)
     {
         Usuario? usuarioComOIdInformado = await _usuarioRepositorio.BuscarPorId(request.Id);
-        if (usuarioComOIdInformado == null)
+        if (usuarioComOIdInformado is not { Status: StatusPadrao.Ativo })
             return null;
         return new UsuarioViewModel()
         {
