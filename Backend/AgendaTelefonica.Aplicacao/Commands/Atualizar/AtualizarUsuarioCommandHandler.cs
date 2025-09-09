@@ -10,14 +10,16 @@ public class AtualizarUsuarioCommandHandler : IRequestHandler<AtualizarUsuarioCo
     #region Propriedades
 
     private readonly IUsuarioRepositorio _usuarioRepositorio;
+    private readonly IUsuarioServico _usuarioServico;
 
     #endregion
 
     #region Construtor
 
-    public AtualizarUsuarioCommandHandler(IUsuarioRepositorio usuarioRepositorio)
+    public AtualizarUsuarioCommandHandler(IUsuarioRepositorio usuarioRepositorio, IUsuarioServico usuarioServico)
     {
         _usuarioRepositorio = usuarioRepositorio;
+        _usuarioServico = usuarioServico;
     }
 
     #endregion
@@ -36,16 +38,23 @@ public class AtualizarUsuarioCommandHandler : IRequestHandler<AtualizarUsuarioCo
             return retornoDaOperacao;
         }
 
-        usuarioParaAtualizar.AtualizarInformacoesDoUsuario(request.Nome, request.Email, request.Telefone);
-        bool usuarioAtualizadoComSucesso = await _usuarioRepositorio.Atualizar(usuarioParaAtualizar);
-        if (usuarioAtualizadoComSucesso)
-        {
-            retornoDaOperacao.MensagemDeRetorno = "Usuário atualizado com Sucesso!";
-            retornoDaOperacao.OperacaoRealizadaComSucesso = true;
-        }
-        else
-            retornoDaOperacao.MensagemDeRetorno = "Ocorreu um erro durante o processo de atualização! Por favor, tente novamente.";
+        bool existeOutroUsuarioComAsMesmasInformacoes = await _usuarioServico.ExisteUmUsuarioComAsMesmaInformacoes(request.Nome, request.Email, request.Id);
 
+        if (existeOutroUsuarioComAsMesmasInformacoes)
+            retornoDaOperacao.MensagemDeRetorno = "Não foi possível atualizar o registro, pois já existe um usuário com as mesmas informações!";
+        else
+        {
+            usuarioParaAtualizar.AtualizarInformacoesDoUsuario(request.Nome, request.Email, request.Telefone);
+            bool usuarioAtualizadoComSucesso = await _usuarioRepositorio.Atualizar(usuarioParaAtualizar);
+            if (usuarioAtualizadoComSucesso)
+            {
+                retornoDaOperacao.MensagemDeRetorno = "Usuário atualizado com Sucesso!";
+                retornoDaOperacao.OperacaoRealizadaComSucesso = true;
+            }
+            else
+                retornoDaOperacao.MensagemDeRetorno = "Ocorreu um erro durante o processo de atualização! Por favor, tente novamente.";
+        }
+        
         return retornoDaOperacao;
     }
 
