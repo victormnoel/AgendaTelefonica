@@ -21,16 +21,25 @@ public class UsuarioServicos : IUsuarioServico
     
     #region Servicos
     
-    public async Task<bool> ExisteUmUsuarioComAsMesmaInformacoes(string nomeDoUsuario, string emailDoUsuario)
+    public async Task<bool> ExisteUmUsuarioComAsMesmaInformacoes(string nomeDoUsuario, string emailDoUsuario, int? usuarioId = null)
     {
         string nomeDoUsuarioFormatado = nomeDoUsuario.ToLower().Trim();
         string emailDoUsuarioFormatado = emailDoUsuario.ToLower().Trim();
         
-        List<Usuario>? usuarioComOMesmoNome = await _usuarioRepositorio.BuscarPorFiltro(
+        List<Usuario>? usuarioComAsMesmasInformacoes = await _usuarioRepositorio.BuscarPorFiltro(
             usuario => usuario.Nome.ToLower().Trim().Equals(nomeDoUsuarioFormatado) || 
                        usuario.Email.ToLower().Trim().Equals(emailDoUsuarioFormatado));
+
+        if (usuarioId != null && usuarioComAsMesmasInformacoes != null)
+        {
+            List<Usuario> usuarioComMesmoIdEInformacoes = usuarioComAsMesmasInformacoes.Where(usuarioExistente => usuarioExistente.Id == usuarioId).ToList();
+            usuarioComAsMesmasInformacoes = usuarioComMesmoIdEInformacoes.Count == 1
+                ? null
+                : usuarioComAsMesmasInformacoes;
+        }
+            
         
-        return usuarioComOMesmoNome is { Count: > 0 };
+        return usuarioComAsMesmasInformacoes is { Count: > 0 };
     }
     
     #endregion
