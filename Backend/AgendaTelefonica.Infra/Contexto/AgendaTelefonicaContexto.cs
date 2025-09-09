@@ -27,29 +27,29 @@ public class AgendaTelefonicaContexto : DbContext
     
     public override Task<int> SaveChangesAsync(CancellationToken tokenDeCancelamento = new())
     {
-        foreach (EntityEntry entrada in ChangeTracker.Entries().Where(entrada => entrada.Entity.GetType().GetProperty("DataDeCriacao") != null))
+        foreach (EntityEntry entrada in ChangeTracker.Entries().Where(entrada => entrada.Entity.GetType().GetProperty("DataDaCriacao") != null))
         {
             if (entrada.State == EntityState.Added)
             {
-                if (entrada.Entity.GetType().GetProperty("DataDeCriacao") != null)
+                if (entrada.Entity.GetType().GetProperty("DataDaCriacao") != null)
                 {
-                    if (entrada.Property("DataDeCriacao").CurrentValue == null)
-                        entrada.Property("DataDeCriacao").CurrentValue = DateTime.Now;
+                    var currentValue = entrada.Property("DataDaCriacao").CurrentValue;
+                    if (currentValue == null || currentValue.Equals(default(DateTime)))
+                        entrada.Property("DataDaCriacao").CurrentValue = DateTime.Now;
                 }
     
     
-                if (entrada.Entity.GetType().GetProperty("DataDeAtualizacao") != null)
-                    entrada.Property("DataDeAtualizacao").IsModified = false;
+                if (entrada.Entity.GetType().GetProperty("DataDaAtualizacao") != null)
+                    entrada.Property("DataDaAtualizacao").IsModified = false;
             }
+
+            if (entrada.State != EntityState.Modified) continue;
+            
+            if (entrada.Entity.GetType().GetProperty("DataDaCriacao") != null)
+                entrada.Property("DataDaCriacao").IsModified = false;
     
-            if (entrada.State == EntityState.Modified)
-            {
-                if (entrada.Entity.GetType().GetProperty("DataDeCriacao") != null)
-                    entrada.Property("DataDeCriacao").IsModified = false;
-    
-                if (entrada.Entity.GetType().GetProperty("DataDeAtualizacao") != null)
-                    entrada.Property("DataDeAtualizacao").CurrentValue = DateTime.Now;
-            }
+            if (entrada.Entity.GetType().GetProperty("DataDaAtualizacao") != null)
+                entrada.Property("DataDaAtualizacao").CurrentValue = DateTime.Now;
         }
     
         return base.SaveChangesAsync(tokenDeCancelamento);
