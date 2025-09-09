@@ -2,12 +2,19 @@ namespace AgendaTelefonica.API.Auxiliares.Modelos;
 
 public class ModeloDeExcecao
 {
+    #region Propriedades
+
     public string TipoDeExcecao { get; set; }
     public string Mensagem { get; set; }
     public string StackTrace { get; set; }
     public DateTime Data { get; set; }
 
-    public ModeloDeExcecao() { }
+    #endregion
+
+    #region Construtor
+    public ModeloDeExcecao()
+    {
+    }
 
     public ModeloDeExcecao(Exception excecao)
     {
@@ -17,8 +24,6 @@ public class ModeloDeExcecao
         Data = DateTime.UtcNow;
     }
 
-    public static ModeloDeExcecao CriarDe(Exception excecao)
-    {
-        return new ModeloDeExcecao(excecao);
-    }
+    #endregion
+    
 }

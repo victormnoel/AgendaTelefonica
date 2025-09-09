@@ -37,6 +37,4 @@ public class BuscarUsuarioQueryHandler : IRequestHandler<BuscarUsuarioQuery, Usu
         };
     }
     #endregion
-    
-    
 }

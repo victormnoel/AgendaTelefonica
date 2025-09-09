@@ -37,8 +37,6 @@ public class UsuarioServicos : IUsuarioServico
                 ? null
                 : usuarioComAsMesmasInformacoes;
         }
-            
-        
         return usuarioComAsMesmasInformacoes is { Count: > 0 };
     }
     

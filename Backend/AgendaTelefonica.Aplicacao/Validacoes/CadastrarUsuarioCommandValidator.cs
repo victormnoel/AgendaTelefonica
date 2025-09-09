@@ -8,8 +8,11 @@ namespace AgendaTelefonica.Aplicacao.Validacoes;
 
 public class CadastrarUsuarioCommandValidator : AbstractValidator<CadastrarUsuarioCommand>
 {
+    #region Construtor
     public CadastrarUsuarioCommandValidator()
     {
+        #region Validacoes
+        
         RuleFor(modelo => modelo.Nome)
             .NotEmpty()
             .WithMessage("O nome deve ser informado!")
@@ -40,5 +43,7 @@ public class CadastrarUsuarioCommandValidator : AbstractValidator<CadastrarUsuar
             string nomeFormatado = Regex.Replace(nome, @"[^a-zA-Z\s]", "").Trim();
             return nomeFormatado.Length > 5;
         }
+        #endregion
     }
+    #endregion
 }

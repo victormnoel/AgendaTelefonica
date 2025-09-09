@@ -5,6 +5,8 @@ namespace AgendaTelefonica.Dominio.Entidades
 {
     public class Usuario
     {
+        #region Propriedades
+
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Telefone { get; private set; }
@@ -13,7 +15,11 @@ namespace AgendaTelefonica.Dominio.Entidades
         public DateTime DataDaCriacao { get; private set; }
         public DateTime DataDaAtualizacao { get; private set; }
 
-        public Usuario(){}
+        #endregion
+
+        #region Construtor
+        public Usuario()
+        { }
 
         public Usuario(string nome, string email, string telefone)
         {
@@ -22,6 +28,8 @@ namespace AgendaTelefonica.Dominio.Entidades
             InserirTelefone(telefone);
             Status = StatusPadrao.Ativo;
         }
+
+        #endregion
         
         #region Regras de Negocio
 
@@ -42,8 +50,8 @@ namespace AgendaTelefonica.Dominio.Entidades
 
         private void InserirNome(string nome)
         {
-            Nome = string.IsNullOrWhiteSpace(nome) 
-                ? throw new NomeInvalidoException() 
+            Nome = string.IsNullOrWhiteSpace(nome)
+                ? throw new NomeInvalidoException()
                 : nome.Trim();
         }
 
@@ -53,16 +61,16 @@ namespace AgendaTelefonica.Dominio.Entidades
                 ? throw new EmailInvalidoException()
                 : email.Trim();
         }
-        
+
         private void InserirTelefone(string telefone)
         {
             Telefone = string.IsNullOrWhiteSpace(telefone)
                 ? throw new TelefoneInvalidoException()
                 : telefone.Trim();
         }
-        
+
         #endregion
-        
+
         #endregion
     }
 }
