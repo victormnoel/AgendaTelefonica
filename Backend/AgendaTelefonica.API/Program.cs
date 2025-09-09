@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AdicionarServicos();
-builder.Services.AddMediatR(typeof(CadastrarUsuarioCommand));
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(CadastrarUsuarioCommand).Assembly));
 
 var app = builder.Build();
 
