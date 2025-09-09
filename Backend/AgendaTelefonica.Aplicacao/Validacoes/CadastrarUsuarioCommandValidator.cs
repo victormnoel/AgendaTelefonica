@@ -2,6 +2,7 @@ using System.Text.RegularExpressions;
 using AgendaTelefonica.Aplicacao.Commands.Cadastrar;
 using AgendaTelefonica.Dominio.Entidades;
 using FluentValidation;
+using FluentValidation.Validators;
 
 namespace AgendaTelefonica.Aplicacao.Validacoes;
 
@@ -18,7 +19,7 @@ public class CadastrarUsuarioCommandValidator : AbstractValidator<CadastrarUsuar
         RuleFor(modelo => modelo.Email)
             .NotEmpty()
             .WithMessage("O email deve ser informado!")
-            .EmailAddress()
+            .Matches(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
             .WithMessage("O email informado não é válido!");
 
         RuleFor(modelo => modelo.Telefone)
