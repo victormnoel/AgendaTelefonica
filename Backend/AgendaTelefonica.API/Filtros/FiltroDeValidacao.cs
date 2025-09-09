@@ -6,13 +6,21 @@ namespace AgendaTelefonica.API.Filtros;
 
 public class FiltroDeValidacao : IActionFilter
 {
+    #region Propriedades
+
     private readonly IServiceProvider _serviceProvider;
 
+    #endregion
+    
+    #region Construtor
     public FiltroDeValidacao(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
     }
 
+    #endregion
+
+    #region Acoes
     public void OnActionExecuting(ActionExecutingContext context)
     {
         var erros = new List<string>();
@@ -24,7 +32,7 @@ public class FiltroDeValidacao : IActionFilter
 
             if (_serviceProvider.GetService(tipoValidador) is not IValidator validador) continue;
             var resultado = validador.Validate(new ValidationContext<object>(parametro.Value));
-                    
+
             if (!resultado.IsValid)
             {
                 erros.AddRange(resultado.Errors.Select(e => e.ErrorMessage));
@@ -32,7 +40,7 @@ public class FiltroDeValidacao : IActionFilter
         }
 
         if (erros.Count == 0) return;
-        
+
         var resposta = new
         {
             Mensagem = "Dados inválidos",
@@ -44,4 +52,5 @@ public class FiltroDeValidacao : IActionFilter
 
     public void OnActionExecuted(ActionExecutedContext context)
     { }
+    #endregion
 }
