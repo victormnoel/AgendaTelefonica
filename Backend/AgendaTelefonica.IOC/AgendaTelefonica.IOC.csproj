@@ -4,6 +4,13 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>AgendaTelefonica.IOC</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AgendaTelefonica.Aplicacao\AgendaTelefonica.Aplicacao.csproj" />
+    <ProjectReference Include="..\AgendaTelefonica.Dominio\AgendaTelefonica.Dominio.csproj" />
+    <ProjectReference Include="..\AgendaTelefonica.Infra\AgendaTelefonica.Infra.csproj" />
+  </ItemGroup>
 
 </Project>
