@@ -10,7 +10,7 @@ public class Log
     public string ModeloUtilizadoNaAcao { get; private set; }
     public string RetornoDaAcao { get; set; }
     public string? ExcecaoRetornada { get; set; }
-    public DateTime DateDeCriacao { get; private set; }
+    public DateTime DataDaCriacao { get; private set; }
 
     #endregion
 
@@ -25,7 +25,7 @@ public class Log
         InserirNomeDaAcao(nomeDaAcao);
         InserirModeloUtilizado(modeloUtilizado);
         InserirRetornoDaAcao(retornoDaAcao);
-        DateDeCriacao = DateTime.Now;
+        DataDaCriacao = DateTime.Now;
     }
 
     #endregion
