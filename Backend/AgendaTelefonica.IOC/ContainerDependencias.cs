@@ -15,7 +15,7 @@ public static class ContainerDependencias
     {
         #region Conexao Com banco de dados
         
-        const string STRING_CONEXAO = "server=localhost;Port=3360;database=agendaTelefonica;user=root;password=root";
+        const string STRING_CONEXAO = "server=localhost;Port=3306;database=agendaTelefonica;user=root;password=root";
         
         servicos.AddDbContextPool<AgendaTelefonicaContexto>(opcoes =>
             opcoes.UseMySql(STRING_CONEXAO, ServerVersion.AutoDetect(STRING_CONEXAO)));
