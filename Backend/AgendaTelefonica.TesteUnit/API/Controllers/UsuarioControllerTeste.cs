@@ -155,7 +155,7 @@ public class UsuarioControllerTeste
         RetornoDaOperacaoViewModel retorno = new RetornoDaOperacaoViewModel { OperacaoRealizadaComSucesso = true, MensagemDeRetorno = "Removido!" };
         A.CallTo(() => _mediatorMock.Send(A<RemoverUsuarioCommand>.That.Matches(c => c.usuarioId == 1), A<CancellationToken>._)).Returns(retorno);
         IActionResult retornoDaAcao = await _controller.RemoverUsuario(1);
-        Assert.IsType<NoContentResult>(retornoDaAcao);
+        Assert.IsType<OkObjectResult>(retornoDaAcao);
     }
 
     [Fact]
