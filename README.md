@@ -44,4 +44,6 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 - **Validação de Dados:** Garantia de integridade dos dados inseridos pelo usuário.
 - **Testes Unitários:** Cobertura das principais funcionalidades para garantir a qualidade do código.
 - **Documentação com Swagger:** Disponibilização de interface interativa para explorar e testar os endpoints da API.
+- **Componentização no Frontend:** Reutilização de componentes Vue.js para garantir coesão, consistência visual e facilidade de manutenção.
+
 
