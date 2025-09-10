@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.API", "AgendaTelefonica.API.csproj", "{3503552C-D4DD-43F7-B90F-BDC6B159A754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaTelefonica.API", "AgendaTelefonica.API.csproj", "{3503552C-D4DD-43F7-B90F-BDC6B159A754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.Dominio", "..\AgendaTelefonica.Dominio\AgendaTelefonica.Dominio.csproj", "{1DCF2BF8-5730-4AE2-B94D-0367A07C404D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaTelefonica.Dominio", "..\AgendaTelefonica.Dominio\AgendaTelefonica.Dominio.csproj", "{1DCF2BF8-5730-4AE2-B94D-0367A07C404D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.Aplicacao", "..\AgendaTelefonica.Aplicacao\AgendaTelefonica.Aplicacao.csproj", "{BFF999E9-0CFC-43CB-A8BA-510332E8BF83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaTelefonica.Aplicacao", "..\AgendaTelefonica.Aplicacao\AgendaTelefonica.Aplicacao.csproj", "{BFF999E9-0CFC-43CB-A8BA-510332E8BF83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.Infra", "..\AgendaTelefonica.Infra\AgendaTelefonica.Infra.csproj", "{29D85AEE-32C6-4DA9-B6EE-CDBB0A05AAB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaTelefonica.Infra", "..\AgendaTelefonica.Infra\AgendaTelefonica.Infra.csproj", "{29D85AEE-32C6-4DA9-B6EE-CDBB0A05AAB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.IOC", "..\AgendaTelefonica.IOC\AgendaTelefonica.IOC.csproj", "{F63F1833-6383-49AC-A175-2EE7D7727B98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaTelefonica.IOC", "..\AgendaTelefonica.IOC\AgendaTelefonica.IOC.csproj", "{F63F1833-6383-49AC-A175-2EE7D7727B98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaTelefonica.TesteUnit", "..\AgendaTelefonica.TesteUnit\AgendaTelefonica.TesteUnit.csproj", "{612B9562-8293-47D2-A14F-7C198E683069}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F63F1833-6383-49AC-A175-2EE7D7727B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F63F1833-6383-49AC-A175-2EE7D7727B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F63F1833-6383-49AC-A175-2EE7D7727B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{612B9562-8293-47D2-A14F-7C198E683069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612B9562-8293-47D2-A14F-7C198E683069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612B9562-8293-47D2-A14F-7C198E683069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612B9562-8293-47D2-A14F-7C198E683069}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
