@@ -13,12 +13,27 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 
 ## Tecnologias Utilizadas
 
-- **Backend:** .NET Web ASP.NET Core (C#)
-- **Frontend:** Vue.js
-- **Banco de Dados:** MySQL
-- **Testes:** xUnit
-- **Gerenciamento de Dependências:** NuGet
-- **Controle de Versão:** Git (GitHub)
+**Backend**
+- .NET Web ASP.NET Core (C#)
+- FluentValidation (validação do modelo de entrada)
+
+**Frontend**
+- Vue.js
+
+**Banco de Dados**
+- MySQL
+
+**Documentação e Testes de API**
+- Swagger (documentação e testes interativos dos endpoints)
+  
+**Testes**
+- xUnit (testes unitários)
+- FakeItEasy (mock)
+- Bogus / AutoFixture (carga de teste)
+
+**Gerenciamento**
+- NuGet (dependências)
+- Git / GitHub (controle de versão)
 
 ## Padrões e Boas Práticas
 
@@ -28,11 +43,5 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 - **Injeção de Dependência:** Facilita o desacoplamento entre componentes.
 - **Validação de Dados:** Garantia de integridade dos dados inseridos pelo usuário.
 - **Testes Unitários:** Cobertura das principais funcionalidades para garantir a qualidade do código.
-
-## Como Executar
-
-1. Clone o repositório:
-   
-   git clone https://github.com/victormnoel/AgendaTelefonica.git
-   
+- **Documentação com Swagger:** Disponibilização de interface interativa para explorar e testar os endpoints da API.
 
