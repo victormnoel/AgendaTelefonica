@@ -138,7 +138,7 @@ public class UsuarioController : ControllerBase
                 await _mediator.Send(new RemoverUsuarioCommand() { usuarioId = id });
             logDaAcao.RetornoDaAcao = retornoDaOperacao.MensagemDeRetorno;
             return retornoDaOperacao.OperacaoRealizadaComSucesso
-                ? NoContent()
+                ? Ok(retornoDaOperacao.MensagemDeRetorno)
                 : BadRequest(retornoDaOperacao.MensagemDeRetorno);
         }
         catch (Exception excecao)
