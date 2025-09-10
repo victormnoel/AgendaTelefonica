@@ -14,6 +14,15 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AdicionarServicos();
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(CadastrarUsuarioCommand).Assembly));
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+        policy.AllowAnyOrigin();
+    });
+});
 
 var app = builder.Build();
 
@@ -25,6 +34,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 
