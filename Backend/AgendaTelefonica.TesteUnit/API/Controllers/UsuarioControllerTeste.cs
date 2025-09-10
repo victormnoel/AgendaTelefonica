@@ -5,17 +5,12 @@ using AgendaTelefonica.Aplicacao.Commands.Remover;
 using AgendaTelefonica.Aplicacao.Modelos.ViewModels;
 using AgendaTelefonica.Aplicacao.Queries.BuscarTodosUsuario;
 using AgendaTelefonica.Aplicacao.Queries.BuscarUsuario;
-using AgendaTelefonica.Dominio.Entidades;
 using AgendaTelefonica.Dominio.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Xunit;
 using FakeItEasy;
 using AutoFixture;
 using Bogus;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace AgendaTelefonica.TesteUnit.API.Controllers;
 
