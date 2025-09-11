@@ -17,6 +17,8 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 - .NET Web ASP.NET Core (C#)
 - FluentValidation (validação do modelo de entrada)
 - MediatR (implementação do padrão Mediator em conjunto com CQRS)
+- Entity Framework Core (ORM para persistência de dados)
+
 
 **Frontend**
 - Vue.js
