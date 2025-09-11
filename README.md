@@ -7,7 +7,7 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 - Cadastro de novos contatos
 - Edição de contatos existentes
 - Exclusão de contatos
-- Busca de contatos por nome, telefone ou outros critérios
+- Busca de contatos
 - Listagem de todos os contatos
 - Validação de dados de entrada
 
