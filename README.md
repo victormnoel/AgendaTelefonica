@@ -16,6 +16,7 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 **Backend**
 - .NET Web ASP.NET Core (C#)
 - FluentValidation (validação do modelo de entrada)
+- MediatR (implementação do padrão Mediator em conjunto com CQRS)
 
 **Frontend**
 - Vue.js
@@ -46,5 +47,9 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 - **Testes Unitários:** Cobertura das principais funcionalidades para garantir a qualidade do código.
 - **Documentação com Swagger:** Disponibilização de interface interativa para explorar e testar os endpoints da API.
 - **Componentização no Frontend:** Reutilização de componentes Vue.js para garantir coesão, consistência visual e facilidade de manutenção.
+- **Mediator Pattern com MediatR:** Implementação de mediadores para orquestrar comandos e consultas no padrão CQRS, reduzindo acoplamento entre camadas.
+- **API REST:** Padrão de comunicação entre cliente e servidor, utilizando endpoints claros e semânticos.
+
+
 
 
