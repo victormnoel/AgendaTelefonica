@@ -39,6 +39,7 @@ Este projeto é uma aplicação de Agenda Telefônica, com o objetivo é gerenci
 
 - **Arquitetura Limpa:** Separação clara entre camadas de domínio, aplicação, infraestrutura e apresentação.
 - **DDD (Domain-Driven Design):** Organização do código baseada em domínios de negócio.
+- **CQRS (Command Query Responsibility Segregation):** Separação entre operações de escrita (commands) e leitura (queries), garantindo maior clareza, escalabilidade e manutenibilidade.
 - **Repository Pattern:** Abstração do acesso a dados.
 - **Injeção de Dependência:** Facilita o desacoplamento entre componentes.
 - **Validação de Dados:** Garantia de integridade dos dados inseridos pelo usuário.
